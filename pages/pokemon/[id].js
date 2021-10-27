@@ -2,10 +2,33 @@ import { gql } from '@apollo/client';
 import client from '../../apollo-client';
 import Head from 'next/head';
 
-export default function Pokemon({pokemon, sprite}) {
+export default function Pokemon({ pokemon, sprite }) {
   console.log(pokemon, sprite);
   return (
-    <h1>Hello pokemon</h1>
+    <>
+    <Head>
+      <title>{pokemon.name}</title>
+    </Head>
+    <h1>Hello this is {pokemon.name}</h1>
+     {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img src={sprite} alt={pokemon.name} />
+    <h2>Types</h2>
+    <ul>
+      {
+        pokemon.pokemon_v2_pokemontypes.map(element => {
+          return <li key={element.pokemon_v2_type.name}>Type: {element.pokemon_v2_type.name}</li>
+        })
+      }
+    </ul>
+    <h2>Stats:</h2>
+    <ul>
+    {
+      pokemon.pokemon_v2_pokemonstats.map(stat => {
+        return <li key={stat.pokemon_v2_stat.name}>{stat.pokemon_v2_stat.name}: {stat.base_stat}</li>
+      })
+    }
+    </ul>
+    </>
   )
 }
 
@@ -15,7 +38,7 @@ export async function getServerSideProps({params}) {
   const { data } = await client.query({
     query: gql`
       query GetPokemon {
-        pokemon_v2_pokemon(where: {id: {_lte: 151}}) {
+        pokemon_v2_pokemon(where: {id: {_eq: ${params.id}}}) {
           id
           name
           pokemon_v2_pokemonstats {
