@@ -12,7 +12,7 @@ export default function Pokemon({pokemon, sprite}) {
 export async function getServerSideProps({params}) {
   const pokemonSprite = await fetch(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${params.id}.png`);
   const sprite = pokemonSprite.url;
-  const data = await client.query({
+  const { data } = await client.query({
     query: gql`
       query GetPokemon {
         pokemon_v2_pokemon(where: {id: {_lte: 151}}) {
@@ -35,7 +35,7 @@ export async function getServerSideProps({params}) {
   });
   return {
     props: {
-      pokemon: data.data.pokemon_v2_pokemon[0],
+      pokemon: data.pokemon_v2_pokemon[0],
       sprite
     }
   }
