@@ -3,7 +3,6 @@ import client from '../../apollo-client';
 import Head from 'next/head';
 
 export default function Pokemon({ pokemon, sprite }) {
-  console.log(pokemon, sprite);
   return (
     <>
     <Head>
