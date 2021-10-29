@@ -1,6 +1,14 @@
 
 # Pokedex-next-graphql
+
 Pokedex with Next js &amp; Graph QL, just for fun!
+
+One nice way to start with next and graphql. You can visit the GraphQL API for pokemon [here](https://beta.pokeapi.co/graphql/console/), and investigate more queries. You
+
+This project it is so simple, if you are looking for something more advanced you can see other repos in my profile. But if you are looking for something to start with next and GraphQL this is a starting point.
+
+Hope you like it =)
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
