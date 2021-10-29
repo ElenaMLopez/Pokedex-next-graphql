@@ -50,7 +50,6 @@ const Home = () => {
                     {pokemon.name}
                      {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img className={styles['home-list__image']} src={pokemon.imageUrl} alt={pokemon.name} />
-                  
                   </a>
                 </Link>
               </li>

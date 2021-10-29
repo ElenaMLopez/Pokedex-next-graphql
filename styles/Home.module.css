@@ -14,13 +14,15 @@
 }
 
 .home-list__element {
+  background: #fff;
   border-radius: 5px;
   box-shadow: 6px 6px 10px #909090;
   list-style-type: none;
+  padding: 10px;
   text-transform: capitalize;
 }
 .home-list__element:hover {
-  border: 1px solid #e2e2e2;
+  border: 1px solid #eeeeee;
   box-shadow: 9px 9px 12px #909090;
 
 }
